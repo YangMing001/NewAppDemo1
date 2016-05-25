@@ -1,0 +1,17 @@
+//
+//  NewAppDemo1.pch
+//  NewAppDemo1
+//
+//  Created by YM on 16/5/24.
+//  Copyright © 2016年 YM. All rights reserved.
+//
+
+#ifndef NewAppDemo1_pch
+#define NewAppDemo1_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "AppConfiger.h"
+#import "UIViewController+HUDAction.h"
+
+#endif /* NewAppDemo1_pch */
