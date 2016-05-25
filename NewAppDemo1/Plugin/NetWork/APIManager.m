@@ -8,7 +8,7 @@
 
 #import "APIManager.h"
 #import <AFNetworking.h>
-
+#import <RealReachability.h>
 @interface APIManager ()
 
 /**分发表，记录请求*/
@@ -21,7 +21,8 @@
 @implementation APIManager
 
 #pragma mark - life cycle
-+ (instancetype)manager{
++ (instancetype)manager
+{
     static dispatch_once_t onceToken;
     static APIManager *apiManager ;
     dispatch_once(&onceToken, ^{
@@ -31,27 +32,29 @@
 }
 
 #pragma mark - public methods
-- (NSNumber *)requsetWithMethodName:(NSString *)mothedName
-                                url:(NSString *)url
-                             params:(NSDictionary *)params
-                            headers:(NSDictionary *)headers
-                            success:(void (^)(id))success
-                               fail:(void (^)(id result,NSError *error))fail
+
+#pragma mark - GET
++ (NSNumber *)Get:(NSString *)url
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail
 {
-    NSURLRequest *request   = [self generateRequestWithMethodName:mothedName
-                                                              url:url
-                                                           params:params
-                                                          headers:headers];
-    return  [self callApiWithRequest:request
-                             success:success
-                                fail:fail];
+    return [APIManager Get:url params:nil success:success fail:fail];
+}
+
++ (NSNumber *)Get:(NSString *)url
+           params:(NSDictionary *)params
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail
+{
+    return [APIManager Get:url params:params headers:nil success:success fail:fail];
 }
 
 + (NSNumber *)Get:(NSString *)url
            params:(NSDictionary *)params
           headers:(NSDictionary *)headers
           success:(void (^)(id))success
-             fail:(void (^)(id result,NSError *error))fail{
+             fail:(void (^)(id result,NSError *error))fail
+{
     return [[APIManager manager] requsetWithMethodName:@"Get"
                                                    url:url
                                                 params:params
@@ -60,11 +63,28 @@
                                                   fail:fail];
 }
 
+#pragma mark - Post
++ (NSNumber *)Post:(NSString *)url
+           success:(void(^)(id result))success
+              fail:(void (^)(id result,NSError *error))fail
+{
+    return [APIManager Post:url params:nil success:success fail:fail];
+}
+
++ (NSNumber *)Post:(NSString *)url
+            params:(NSDictionary *)params
+           success:(void(^)(id result))success
+              fail:(void (^)(id result,NSError *error))fail
+{
+    return [APIManager Post:url params:params headers:nil success:success fail:fail];
+}
+
 + (NSNumber *)Post:(NSString *)url
             params:(NSDictionary *)params
            headers:(NSDictionary *)headers
            success:(void (^)(id))success
-              fail:(void (^)(id result,NSError *error))fail{
+              fail:(void (^)(id result,NSError *error))fail
+{
     return [[APIManager manager] requsetWithMethodName:@"Post"
                                                    url:url
                                                 params:params
@@ -73,17 +93,51 @@
                                                   fail:fail];
 }
 
+#pragma mark - Put
++ (NSNumber *)Put:(NSString *)url
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail
+{
+    return [APIManager Put:url params:nil success:success fail:fail];
+}
+
++ (NSNumber *)Put:(NSString *)url
+           params:(NSDictionary *)params
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail
+{
+    return [APIManager Put:url params:params headers:nil success:success fail:fail];
+}
+
 + (NSNumber *)Put:(NSString *)url
            params:(NSDictionary *)params
           headers:(NSDictionary *)headers
           success:(void (^)(id))success
-             fail:(void (^)(id result,NSError *error))fail{
+             fail:(void (^)(id result,NSError *error))fail
+{
     return [[APIManager manager] requsetWithMethodName:@"Put"
                                                    url:url
                                                 params:params
                                                headers:headers
                                                success:success
                                                   fail:fail];
+}
+
+#pragma mark - Delete
+
++ (NSNumber *)Delete:(NSString *)url
+             success:(void (^)(id))success
+                fail:(void (^)(id,NSError *))fail
+{
+    return [APIManager Delete:url params:nil success:success fail:fail];
+}
+
++ (NSNumber *)Delete:(NSString *)url
+              params:(NSDictionary *)params
+             success:(void (^)(id))success
+                fail:(void (^)(id,NSError *))fail
+{
+    return [APIManager Delete:url params:params headers:nil success:success fail:fail];
 }
 
 + (NSNumber *)Delete:(NSString *)url
@@ -119,9 +173,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                                   success:success
                                   failure:failure];
     
-    manager.dispatchTable[requestId] = task;
-    [task resume];
-    return requestId;
+    return  [manager sendTask:task requestID:requestId];
 }
 
 + (void)cancelRequestWithRequestID:(NSNumber *)requestID
@@ -151,6 +203,22 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
 }
 
 #pragma mark - private methods
+
+- (NSNumber *)requsetWithMethodName:(NSString *)mothedName
+                                url:(NSString *)url
+                             params:(NSDictionary *)params
+                            headers:(NSDictionary *)headers
+                            success:(void (^)(id))success
+                               fail:(void (^)(id result,NSError *error))fail
+{
+    NSURLRequest *request   = [self generateRequestWithMethodName:mothedName
+                                                              url:url
+                                                           params:params
+                                                          headers:headers];
+    return  [self callApiWithRequest:request
+                             success:success
+                                fail:fail];
+}
 
 /**
  *  根据参数生成Request对象
@@ -199,7 +267,6 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
      *  4 执行 task ,返回 requestId
      */
     NSNumber *requestId = [self generateRequestId];
-    
     NSURLSessionDataTask *task = [self.sessionManager dataTaskWithRequest:request
                                                         completionHandler:
                                   ^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -220,10 +287,25 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                                           fail?fail(responseString,error):nil;
                                       }
                                   }];
-    [self.dispatchTable setValue:task forKey:[requestId stringValue]];
+    return [self sendTask:task requestID:requestId];
+}
+
+
+/**
+ *  发送请求，没有网络就不发送
+ *
+ */
+- (NSNumber *)sendTask:(NSURLSessionTask *)task requestID:(NSNumber *)requestID{
     
+    ReachabilityStatus status = [GLobalRealReachability currentReachabilityStatus];
+    //没有网络不请求
+    if (status == RealStatusNotReachable) {
+        return  @(-1);
+    }
+    
+    [self.dispatchTable setValue:task forKey:[requestID stringValue]];
     [task resume];
-    return requestId;
+    return requestID;
 }
 
 

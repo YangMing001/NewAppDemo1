@@ -30,6 +30,15 @@
           success:(void(^)(id result))success
              fail:(void (^)(id result,NSError *error))fail;
 
++ (NSNumber *)Get:(NSString *)url
+           params:(NSDictionary *)params
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail;
+
++ (NSNumber *)Get:(NSString *)url
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail;
+
 /**
  *  Post请求
  *
@@ -47,6 +56,15 @@
            success:(void(^)(id result))success
               fail:(void (^)(id result,NSError *error))fail;
 
++ (NSNumber *)Post:(NSString *)url
+            params:(NSDictionary *)params
+           success:(void(^)(id result))success
+              fail:(void (^)(id result,NSError *error))fail;
+
++ (NSNumber *)Post:(NSString *)url
+           success:(void(^)(id result))success
+              fail:(void (^)(id result,NSError *error))fail;
+
 /**
  *  Put请求
  *
@@ -61,6 +79,15 @@
 + (NSNumber *)Put:(NSString *)url
            params:(NSDictionary *)params
           headers:(NSDictionary *)headers
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail;
+
++ (NSNumber *)Put:(NSString *)url
+           params:(NSDictionary *)params
+          success:(void(^)(id result))success
+             fail:(void (^)(id result,NSError *error))fail;
+
++ (NSNumber *)Put:(NSString *)url
           success:(void(^)(id result))success
              fail:(void (^)(id result,NSError *error))fail;
 

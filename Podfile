@@ -14,3 +14,6 @@ pod 'AMapSearch', '~> 3.3.0'
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'MJRefresh', '~> 3.1.0'
 pod 'MJExtension', '~> 3.0.10'
+#网络状态判断
+pod 'RealReachability', '~> 1.1.5'
+pod 'YYKit', '~> 1.0.6'

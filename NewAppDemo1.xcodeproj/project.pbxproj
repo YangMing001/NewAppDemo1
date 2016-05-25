@@ -23,6 +23,10 @@
 		992A9BDA1CF3F4E2005D8800 /* AnalysisUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 992A9BD91CF3F4E2005D8800 /* AnalysisUtil.m */; };
 		992A9BDD1CF3FBB1005D8800 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 992A9BDC1CF3FBB1005D8800 /* MainVC.m */; };
 		992A9BE01CF41AE9005D8800 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 992A9BDF1CF41AE9005D8800 /* APIManager.m */; };
+		99D1A1811CF59B5E007A37D5 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D1A1801CF59B5E007A37D5 /* BaseService.m */; };
+		99D1A1841CF5A1BD007A37D5 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D1A1831CF5A1BD007A37D5 /* UserService.m */; };
+		99D1A18B1CF5AD8A007A37D5 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D1A18A1CF5AD8A007A37D5 /* BaseModel.m */; };
+		99D1A18E1CF5ADB0007A37D5 /* ErrorResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D1A18D1CF5ADB0007A37D5 /* ErrorResponseModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,14 @@
 		992A9BDF1CF41AE9005D8800 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		992A9BE11CF4218B005D8800 /* ThirdPartKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdPartKeys.h; sourceTree = "<group>"; };
 		992A9BE31CF4265A005D8800 /* NewAppDemo1.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewAppDemo1.pch; sourceTree = "<group>"; };
+		99D1A17F1CF59B5E007A37D5 /* BaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseService.h; sourceTree = "<group>"; };
+		99D1A1801CF59B5E007A37D5 /* BaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseService.m; sourceTree = "<group>"; };
+		99D1A1821CF5A1BD007A37D5 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		99D1A1831CF5A1BD007A37D5 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		99D1A1891CF5AD8A007A37D5 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		99D1A18A1CF5AD8A007A37D5 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		99D1A18C1CF5ADB0007A37D5 /* ErrorResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorResponseModel.h; sourceTree = "<group>"; };
+		99D1A18D1CF5ADB0007A37D5 /* ErrorResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorResponseModel.m; sourceTree = "<group>"; };
 		C374F2E03ABA0509BA31DC60 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +154,8 @@
 		99088ECE1CF2A32A0004D481 /* NewAppDemo1 */ = {
 			isa = PBXGroup;
 			children = (
+				99D1A18F1CF5B15B007A37D5 /* Util */,
+				99D1A1781CF59A96007A37D5 /* Services */,
 				99088F021CF2A3FF0004D481 /* Classes */,
 				99088F031CF2A3FF0004D481 /* Resources */,
 				99088F041CF2A3FF0004D481 /* Libs */,
@@ -191,6 +205,7 @@
 		99088F021CF2A3FF0004D481 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				99D1A1851CF5ACF6007A37D5 /* BaseFrameWork */,
 				99088F141CF2A7DF0004D481 /* Mine */,
 				99088F191CF2A7DF0004D481 /* Home */,
 			);
@@ -281,6 +296,8 @@
 			children = (
 				992A9BDE1CF41AE9005D8800 /* APIManager.h */,
 				992A9BDF1CF41AE9005D8800 /* APIManager.m */,
+				99D1A18C1CF5ADB0007A37D5 /* ErrorResponseModel.h */,
+				99D1A18D1CF5ADB0007A37D5 /* ErrorResponseModel.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -406,6 +423,57 @@
 				99088F261CF2FDC90004D481 /* TJViewControllerIntercept.m */,
 			);
 			path = Intercept;
+			sourceTree = "<group>";
+		};
+		99D1A1781CF59A96007A37D5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				99D1A17F1CF59B5E007A37D5 /* BaseService.h */,
+				99D1A1801CF59B5E007A37D5 /* BaseService.m */,
+				99D1A1821CF5A1BD007A37D5 /* UserService.h */,
+				99D1A1831CF5A1BD007A37D5 /* UserService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		99D1A1851CF5ACF6007A37D5 /* BaseFrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				99D1A1861CF5AD6A007A37D5 /* View */,
+				99D1A1871CF5AD6A007A37D5 /* Controller */,
+				99D1A1881CF5AD6A007A37D5 /* Model */,
+			);
+			path = BaseFrameWork;
+			sourceTree = "<group>";
+		};
+		99D1A1861CF5AD6A007A37D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99D1A1871CF5AD6A007A37D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		99D1A1881CF5AD6A007A37D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99D1A1891CF5AD8A007A37D5 /* BaseModel.h */,
+				99D1A18A1CF5AD8A007A37D5 /* BaseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99D1A18F1CF5B15B007A37D5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		AF3A1F56074493AF08F11C1A /* Pods */ = {
@@ -599,13 +667,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				99088F271CF2FDC90004D481 /* TJViewControllerIntercept.m in Sources */,
+				99D1A18E1CF5ADB0007A37D5 /* ErrorResponseModel.m in Sources */,
 				992A9BDD1CF3FBB1005D8800 /* MainVC.m in Sources */,
 				992A9BE01CF41AE9005D8800 /* APIManager.m in Sources */,
 				99088ED71CF2A32A0004D481 /* ViewController.m in Sources */,
+				99D1A1841CF5A1BD007A37D5 /* UserService.m in Sources */,
 				992A9BD71CF3EB55005D8800 /* UIViewController+HUDAction.m in Sources */,
 				99088ED41CF2A32A0004D481 /* AppDelegate.m in Sources */,
+				99D1A18B1CF5AD8A007A37D5 /* BaseModel.m in Sources */,
 				99088F221CF2B4DD0004D481 /* YDDBManager.m in Sources */,
 				99088ED11CF2A32A0004D481 /* main.m in Sources */,
+				99D1A1811CF59B5E007A37D5 /* BaseService.m in Sources */,
 				991FB1801CF469F40018C14F /* SharePlugin.m in Sources */,
 				992A9BDA1CF3F4E2005D8800 /* AnalysisUtil.m in Sources */,
 			);
