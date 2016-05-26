@@ -9,6 +9,10 @@
 #ifndef AppConfiger_h
 #define AppConfiger_h
 
+
 #import "ThirdPartKeys.h"
+#import "APIs.h"
+#import "Logs.h"
+
 
 #endif /* AppConfiger_h */

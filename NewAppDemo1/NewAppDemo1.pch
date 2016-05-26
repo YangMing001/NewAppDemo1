@@ -9,8 +9,10 @@
 #ifndef NewAppDemo1_pch
 #define NewAppDemo1_pch
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//是否是生产环境
+#define IsPAT   1
+
+#import <Bugly/Bugly.h>
 #import "AppConfiger.h"
 #import "UIViewController+HUDAction.h"
 

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		583735BEBDE4FA0E9AC9DE6B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1710F4C22772FC1A80109DED /* libPods.a */; };
+		9905AF891CF6A7C500967FC3 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9905AF881CF6A7C500967FC3 /* YYFPSLabel.m */; };
+		9905AF8C1CF6D7CE00967FC3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9905AF8B1CF6D7CE00967FC3 /* BaseViewController.m */; };
+		9905AF8F1CF6D89C00967FC3 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9905AF8E1CF6D89C00967FC3 /* BaseTableViewController.m */; };
+		9905AF921CF6DD0100967FC3 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9905AF911CF6DD0100967FC3 /* BaseNavigationController.m */; };
+		9905AF971CF6E43B00967FC3 /* HotFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 9905AF961CF6E43B00967FC3 /* HotFix.m */; };
 		99088ED11CF2A32A0004D481 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99088ED01CF2A32A0004D481 /* main.m */; };
 		99088ED41CF2A32A0004D481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99088ED31CF2A32A0004D481 /* AppDelegate.m */; };
 		99088ED71CF2A32A0004D481 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99088ED61CF2A32A0004D481 /* ViewController.m */; };
@@ -49,6 +54,18 @@
 /* Begin PBXFileReference section */
 		1710F4C22772FC1A80109DED /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A83385767D3BC6775C288E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9905AF871CF6A7C500967FC3 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
+		9905AF881CF6A7C500967FC3 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
+		9905AF8A1CF6D7CE00967FC3 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		9905AF8B1CF6D7CE00967FC3 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		9905AF8D1CF6D89C00967FC3 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		9905AF8E1CF6D89C00967FC3 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		9905AF901CF6DD0100967FC3 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		9905AF911CF6DD0100967FC3 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		9905AF931CF6DD7B00967FC3 /* APIs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIs.h; sourceTree = "<group>"; };
+		9905AF951CF6E43B00967FC3 /* HotFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotFix.h; sourceTree = "<group>"; };
+		9905AF961CF6E43B00967FC3 /* HotFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotFix.m; sourceTree = "<group>"; };
+		9905AF991CF6ECD200967FC3 /* Logs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logs.h; sourceTree = "<group>"; };
 		99088ECC1CF2A32A0004D481 /* NewAppDemo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewAppDemo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99088ED01CF2A32A0004D481 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99088ED21CF2A32A0004D481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,6 +144,32 @@
 				1710F4C22772FC1A80109DED /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9905AF861CF6A7B200967FC3 /* YYFPSLabel */ = {
+			isa = PBXGroup;
+			children = (
+				9905AF871CF6A7C500967FC3 /* YYFPSLabel.h */,
+				9905AF881CF6A7C500967FC3 /* YYFPSLabel.m */,
+			);
+			path = YYFPSLabel;
+			sourceTree = "<group>";
+		};
+		9905AF941CF6E42200967FC3 /* HotFix */ = {
+			isa = PBXGroup;
+			children = (
+				9905AF951CF6E43B00967FC3 /* HotFix.h */,
+				9905AF961CF6E43B00967FC3 /* HotFix.m */,
+			);
+			path = HotFix;
+			sourceTree = "<group>";
+		};
+		9905AF981CF6EC9E00967FC3 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				9905AF991CF6ECD200967FC3 /* Logs.h */,
+			);
+			path = Logs;
 			sourceTree = "<group>";
 		};
 		99088EC31CF2A32A0004D481 = {
@@ -222,6 +265,7 @@
 		99088F041CF2A3FF0004D481 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9905AF861CF6A7B200967FC3 /* YYFPSLabel */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -229,6 +273,7 @@
 		99088F051CF2A3FF0004D481 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
+				9905AF941CF6E42200967FC3 /* HotFix */,
 				99088F241CF2FDAC0004D481 /* Intercept */,
 				99088F231CF2FCF90004D481 /* Analysis */,
 				99088F1E1CF2A8070004D481 /* DB */,
@@ -244,6 +289,7 @@
 		99088F061CF2A3FF0004D481 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				9905AF981CF6EC9E00967FC3 /* Logs */,
 				99088F0D1CF2A5A60004D481 /* ThirdPartKeys */,
 				99088F0E1CF2A5A60004D481 /* APIs */,
 				99088F1F1CF2A8AC0004D481 /* AppConfiger.h */,
@@ -271,6 +317,7 @@
 		99088F0E1CF2A5A60004D481 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				9905AF931CF6DD7B00967FC3 /* APIs.h */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -456,6 +503,12 @@
 		99D1A1871CF5AD6A007A37D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9905AF8A1CF6D7CE00967FC3 /* BaseViewController.h */,
+				9905AF8B1CF6D7CE00967FC3 /* BaseViewController.m */,
+				9905AF8D1CF6D89C00967FC3 /* BaseTableViewController.h */,
+				9905AF8E1CF6D89C00967FC3 /* BaseTableViewController.m */,
+				9905AF901CF6DD0100967FC3 /* BaseNavigationController.h */,
+				9905AF911CF6DD0100967FC3 /* BaseNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -672,11 +725,16 @@
 				992A9BE01CF41AE9005D8800 /* APIManager.m in Sources */,
 				99088ED71CF2A32A0004D481 /* ViewController.m in Sources */,
 				99D1A1841CF5A1BD007A37D5 /* UserService.m in Sources */,
+				9905AF891CF6A7C500967FC3 /* YYFPSLabel.m in Sources */,
 				992A9BD71CF3EB55005D8800 /* UIViewController+HUDAction.m in Sources */,
 				99088ED41CF2A32A0004D481 /* AppDelegate.m in Sources */,
+				9905AF8C1CF6D7CE00967FC3 /* BaseViewController.m in Sources */,
+				9905AF971CF6E43B00967FC3 /* HotFix.m in Sources */,
+				9905AF8F1CF6D89C00967FC3 /* BaseTableViewController.m in Sources */,
 				99D1A18B1CF5AD8A007A37D5 /* BaseModel.m in Sources */,
 				99088F221CF2B4DD0004D481 /* YDDBManager.m in Sources */,
 				99088ED11CF2A32A0004D481 /* main.m in Sources */,
+				9905AF921CF6DD0100967FC3 /* BaseNavigationController.m in Sources */,
 				99D1A1811CF59B5E007A37D5 /* BaseService.m in Sources */,
 				991FB1801CF469F40018C14F /* SharePlugin.m in Sources */,
 				992A9BDA1CF3F4E2005D8800 /* AnalysisUtil.m in Sources */,

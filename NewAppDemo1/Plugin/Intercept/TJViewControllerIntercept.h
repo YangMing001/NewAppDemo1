@@ -13,4 +13,9 @@
  */
 @interface TJViewControllerIntercept : NSObject
 
+/**
+ *  开启ViewController拦截
+ */
++ (void)startIntercept;
+
 @end

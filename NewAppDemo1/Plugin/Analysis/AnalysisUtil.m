@@ -8,12 +8,20 @@
 
 #import "AnalysisUtil.h"
 #import <TalkingData.h>
-
+#import <Bugly/Bugly.h>
 
 @implementation AnalysisUtil
 
 + (void)setup{
-    [AnalysisUtil sessionStarted:TalkingdataKey withChannelId:@"APPStore"];
+    [TalkingData setLogEnabled:NO];
+    [TalkingData sessionStarted:TalkingdataKey
+                  withChannelId:@"App_Store"];
+    [TalkingData setExceptionReportEnabled:NO];
+    [TalkingData setSignalReportEnabled:NO];
+    
+    
+    [Bugly startWithAppId:BuglyKey];
+    [BuglyLog initLogger:BuglyLogLevelInfo consolePrint:YES];
 }
 
 + (void)sessionStarted:(NSString *)appKey withChannelId:(NSString *)channelId{

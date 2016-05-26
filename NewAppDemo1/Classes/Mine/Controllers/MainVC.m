@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self layoutPageSubviews];
+    logger(@"cccc");
 }
 
 /**布局控件*/

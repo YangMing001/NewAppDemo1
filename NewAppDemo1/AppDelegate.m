@@ -7,7 +7,14 @@
 //
 
 #import "AppDelegate.h"
+
+
+#import "MainVC.h"
+#import "YYFPSLabel.h"
+
 #import "AnalysisUtil.h"
+#import "TJViewControllerIntercept.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,9 +24,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //数据统计初始化
-    [AnalysisUtil setup];
-    
+    [self setupLaunch:application options:launchOptions];
+    [self setupUI];
     return YES;
 }
 
@@ -44,5 +50,55 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Finish 方法汇总
+- (void)setupLaunch:(UIApplication *)application
+    options:(NSDictionary *)launchOptions
+{
+    //开启拦截器
+    [TJViewControllerIntercept startIntercept];
+
+    //数据统计初始化
+    [AnalysisUtil setup];
+
+}
+
+#pragma mark - 初始化UI
+- (void)setupUI{
+    //step 1    设置rootVC
+    self.window.rootViewController = [self setupRootVC];
+    //step 2    设置其他View
+    [self setupOtherView];
+    //step 3    key and Visible
+    [self.window makeKeyAndVisible];
+}
+
+/** 设置根VC */
+- (UIViewController *)setupRootVC{
+    MainVC *vc = [MainVC new];
+    return vc;
+}
+
+/**  设置其他View   */
+- (void)setupOtherView{
+    [self addFPSLabel];
+}
+
+- (void)addFPSLabel{
+    YYFPSLabel *fps = [[YYFPSLabel alloc] initWithFrame:CGRectMake(5, 90, 130, 30)];
+    [self.window addSubview:fps];
+    
+}
+
+#pragma mark - getter and setter
+
+- (UIWindow *)window{
+    if (_window == nil) {
+        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _window.backgroundColor = [UIColor redColor];
+    }
+    return _window;
+}
+
 
 @end

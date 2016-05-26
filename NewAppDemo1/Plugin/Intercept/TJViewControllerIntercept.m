@@ -13,12 +13,13 @@
 
 @implementation TJViewControllerIntercept
 
-+ (void)load
-{
-    /* + (void)load 会在应用启动的时候自动被runtime调用，通过重载这个方法来实现最小的对业务方的“代码入侵” */
-    [super load];
-    [TJViewControllerIntercept sharedInstance];
-}
+//在load方法中调用 ASpects bugly 会报错
+//+ (void)load
+//{
+//    /* + (void)load 会在应用启动的时候自动被runtime调用，通过重载这个方法来实现最小的对业务方的“代码入侵” */
+//    [super load];
+//    [TJViewControllerIntercept sharedInstance];
+//}
 
 /*
  按道理来说，这个sharedInstance单例方法是可以放在头文件的，但是对于目前这个应用来说，暂时还没有放出去的必要
@@ -33,6 +34,13 @@
         sharedInstance = [[TJViewControllerIntercept alloc] init];
     });
     return sharedInstance;
+}
+
+/**
+ *  开启ViewController拦截
+ */
++ (void)startIntercept{
+    [TJViewControllerIntercept sharedInstance];
 }
 
 - (instancetype)init
