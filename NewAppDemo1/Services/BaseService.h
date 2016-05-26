@@ -18,7 +18,6 @@
 @property (nonatomic,strong) NSNumber *lastRequestID;
 
 
-
 #pragma mark - 取消请求
 - (void)cancelLastRequest;
 - (void)cancelServiceRequest;

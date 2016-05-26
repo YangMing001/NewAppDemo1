@@ -10,14 +10,14 @@
 
 @implementation BaseService
 
-
-
 #pragma mark - Public Method
 - (void)cancelLastRequest{
     [APIManager cancelRequestWithRequestID:self.lastRequestID];
+    self.lastRequestID = nil;
 }
 - (void)cancelServiceRequest{
     [APIManager cancelRequestWithRequestIDList:self.requsetIDList];
+    [self.requsetIDList removeAllObjects];
 }
 - (void)cancelAllRequest{
     [APIManager cancelAllRequest];
@@ -32,8 +32,10 @@
 }
 
 - (void)setLastRequestID:(NSNumber *)lastRequestID{
-    [self.requsetIDList addObject:lastRequestID];
     _lastRequestID = lastRequestID;
+    if (lastRequestID) {
+        [self.requsetIDList addObject:lastRequestID];
+    }
 }
 
 @end

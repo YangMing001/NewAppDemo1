@@ -176,14 +176,21 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     return  [manager sendTask:task requestID:requestId];
 }
 
+#pragma mark - 取消请求
 + (void)cancelRequestWithRequestID:(NSNumber *)requestID
 {
+    if (!requestID) {
+        return;
+    }
+   
     APIManager *manager = [APIManager manager];
     NSString *requsetkey = [requestID stringValue];
-    NSLog(@"cancel ----");
     NSURLSessionDataTask *task = manager.dispatchTable[requsetkey];
-    [task cancel];
-    [manager.dispatchTable removeObjectForKey:requsetkey];
+    if (task) {
+        logger(@"task cancel %@",task);
+        [task cancel];
+        [manager.dispatchTable removeObjectForKey:requsetkey];
+    }
 }
 
 + (void)cancelRequestWithRequestIDList:(NSArray *)requestIDList
@@ -281,12 +288,23 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                                       NSString *responseString = [[NSString alloc]
                                                                   initWithData:responseObject
                                                                   encoding:NSUTF8StringEncoding];
+                                      logInfo(@"---------responseString start---------------");
+                                      logInfo(@"--------------------------------------------");
+                                      logInfo(@"-responseString----%@",responseString);
+                                      logInfo(@"--------------------------------------------");
+                                      logInfo(@"--------responseString end------------------");
                                       if (!error) {
                                           success?success(responseString):nil;
                                       }else{
                                           fail?fail(responseString,error):nil;
                                       }
                                   }];
+    logInfo(@"--------------------------");
+    logInfo(@"--------------------------");
+    logInfo(@"-RequestID----%@-",requestId);
+    logInfo(@"-request------%@-",request);
+    logInfo(@"--------------------------");
+    logInfo(@"--------------------------");
     return [self sendTask:task requestID:requestId];
 }
 

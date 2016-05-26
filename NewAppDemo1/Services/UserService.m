@@ -25,8 +25,8 @@
 - (void)loginWithParams:(NSDictionary *)params
                complite:(void (^)(BOOL))complite
 {
-    NSAssert(params[@"userName"], @"缺少 userName 参数");
-    NSAssert(params[@"userPW"], @"缺少 userPW 参数");
+    NSAssert(params[@"userName"],   @"缺少 userName 参数");
+    NSAssert(params[@"userPW"],     @"缺少 userPW 参数");
 
     NSString *urlString = [NSString stringWithFormat:@""];
     
